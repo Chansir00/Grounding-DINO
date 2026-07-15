@@ -174,7 +174,7 @@ coco_od_dataset = dict(
     ],
     return_classes=True,
     type='ODVGDataset')
-data_root = '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/'
+data_root = '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/flir_3cls_fewshot_export/1shot/'
 dataset_type = 'ODVGDataset'
 default_hooks = dict(
     checkpoint=dict(
@@ -380,11 +380,11 @@ test_cfg = dict(type='TestLoop')
 test_dataloader = dict(
     batch_size=1,
     dataset=dict(
-        ann_file='annotations_3cls/val_3cls.json',
+        ann_file='annotations/val.json',
         backend_args=None,
         data_prefix=dict(img='val/'),
         data_root=
-        '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/',
+        '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/flir_3cls_fewshot_export/1shot/',
         metainfo=dict(
             classes=(
                 'person',
@@ -444,7 +444,7 @@ test_dataloader = dict(
     sampler=dict(shuffle=False, type='DefaultSampler'))
 test_evaluator = dict(
     ann_file=
-    '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/annotations_3cls/val_3cls.json',
+    '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/flir_3cls_fewshot_export/1shot/annotations/val.json',
     backend_args=None,
     classwise=True,
     format_only=False,
@@ -476,16 +476,16 @@ test_pipeline = [
         ),
         type='PackDetInputs'),
 ]
-train_ann = 'annotations_3cls/train_3cls_1shot.json'
+train_ann = 'annotations/train.json'
 train_cfg = dict(max_epochs=30, type='EpochBasedTrainLoop', val_interval=5)
 train_dataloader = dict(
     batch_sampler=dict(type='AspectRatioBatchSampler'),
     batch_size=2,
     dataset=dict(
-        ann_file='annotations_3cls/train_3cls_1shot.json',
+        ann_file='annotations/train.json',
         data_prefix=dict(img='train/'),
         data_root=
-        '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/',
+        '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/flir_3cls_fewshot_export/1shot/',
         filter_cfg=dict(filter_empty_gt=False, min_size=32),
         metainfo=dict(
             classes=(
@@ -817,11 +817,11 @@ val_cfg = dict(type='ValLoop')
 val_dataloader = dict(
     batch_size=1,
     dataset=dict(
-        ann_file='annotations_3cls/val_3cls.json',
+        ann_file='annotations/val.json',
         backend_args=None,
         data_prefix=dict(img='val/'),
         data_root=
-        '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/',
+        '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/flir_3cls_fewshot_export/1shot/',
         metainfo=dict(
             classes=(
                 'person',
@@ -881,7 +881,7 @@ val_dataloader = dict(
     sampler=dict(shuffle=False, type='DefaultSampler'))
 val_evaluator = dict(
     ann_file=
-    '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/annotations_3cls/val_3cls.json',
+    '/root/autodl-tmp/workspace/datasets/flir/FLIR_ADAS_1_3/FLIR_ADAS_1_3/flir_3cls_fewshot_export/1shot/annotations/val.json',
     backend_args=None,
     classwise=True,
     format_only=False,
