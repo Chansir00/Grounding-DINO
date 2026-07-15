@@ -184,7 +184,7 @@ default_hooks = dict(
         save_best='coco/bbox_mAP_50',
         save_last=False,
         type='CheckpointHook'),
-    logger=dict(interval=1, type='LoggerHook'),
+    logger=dict(interval=50, type='LoggerHook'),
     param_scheduler=dict(type='ParamSchedulerHook'),
     sampler_seed=dict(type='DistSamplerSeedHook'),
     timer=dict(type='IterTimerHook'),
@@ -479,10 +479,10 @@ test_pipeline = [
         type='PackDetInputs'),
 ]
 train_ann = 'annotations_3cls/train_3cls_full.json'
-train_cfg = dict(max_epochs=12, type='EpochBasedTrainLoop', val_interval=2)
+train_cfg = dict(max_epochs=6, type='EpochBasedTrainLoop', val_interval=2)
 train_dataloader = dict(
     batch_sampler=dict(type='AspectRatioBatchSampler'),
-    batch_size=1,
+    batch_size=2,
     dataset=dict(
         ann_file='annotations_3cls/train_3cls_full.json',
         data_prefix=dict(img='train/'),
@@ -663,7 +663,7 @@ train_dataloader = dict(
         ],
         return_classes=True,
         type='CocoDataset'),
-    num_workers=2,
+    num_workers=4,
     persistent_workers=True,
     sampler=dict(shuffle=True, type='DefaultSampler'))
 train_pipeline = [
@@ -878,7 +878,7 @@ val_dataloader = dict(
         test_mode=True,
         type='CocoDataset'),
     drop_last=False,
-    num_workers=2,
+    num_workers=4,
     persistent_workers=True,
     sampler=dict(shuffle=False, type='DefaultSampler'))
 val_evaluator = dict(
