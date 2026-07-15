@@ -1,9 +1,29 @@
+# Model weights and large binary artifacts
 *.pth
 *.pt
 *.ckpt
 *.onnx
+*.bin
+*.safetensors
+
+# Archives and datasets
 *.zip
 *.tar
 *.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Python/cache files
 __pycache__/
+*.pyc
 .ipynb_checkpoints/
+
+# MMDetection temporary files
+last_checkpoint
+*.tmp
+
+# Optional: large visualization folders
+vis/
+visualization/
+predictions/
