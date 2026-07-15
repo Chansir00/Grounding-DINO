@@ -1,0 +1,9 @@
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.zip
+*.tar
+*.tar.gz
+__pycache__/
+.ipynb_checkpoints/
